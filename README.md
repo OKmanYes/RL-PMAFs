@@ -1,6 +1,7 @@
 # RL-PMAFs.
 Two-stream network:
 TSM
+
 train
 ```
 python main.py pma RGB /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students/other11/tsn/train_list.txt /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students/other11/tsn/val_list.txt --arch senet --num_segments 10 --gd 20 --lr 0.001 --lr_steps 15 25 30 --epochs 40 -b 8 -j 8 --dropout 0.8 --snapshot_pref pma_senet_
@@ -12,9 +13,13 @@ python test_models.py pma RGB /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students
 ```
 
 FLOW
+
+train
 ```
 python main.py pma Flow /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students/other11/tsn/flow_train.txt /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students/other11/tsn/flow_val.txt --arch resnet101 --num_segments 10 --gd 20 --lr 0.0001 --lr_steps 10 40 60 --epochs 80 -b 16 -j 8 --dropout 0.8 --snapshot_pref pma_resnet101_ --flow_pref flow_
 ```
+
+test
 ```
 python test_models.py pma Flow /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students/other11/tsn/flow_test.txt /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students/other11/tsn/pma_resnet101__flow_checkpoint.pth.tar --arch resnet101 --save_scores /mnt/99247d91-0f6b-7e41-b405-f664d2eed5ef/students/other11/tsn/pma_resnet101__flow_model_best.pth.tar --flow_pref flow_
 ```
