@@ -25,7 +25,7 @@ else:
             setattr(self.base_model, self.base_model.last_layer_name, nn.Dropout(p=self.dropout))
             self.new_fc = nn.Linear(20, num_class)      
             self.second_fc = nn.Linear(feature_dim,20)  
-And then we can get two feature maps(10*200) of two-stream network, and we should splicing them to get last feature(10*400).
+And then we can get two feature maps(10 * 200) of two-stream network, and we should splicing them to get last feature(10 * 400).
 
 BMN:
 1. To train the BMN:
